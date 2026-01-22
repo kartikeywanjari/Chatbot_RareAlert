@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer, util
 from deep_translator import GoogleTranslator
 
 
-df = pd.read_csv(r'D:\ASUS TUF 9175049880\healthcareChatbot\rarealert_1\rare_diseases_50.csv') 
+df = pd.read_csv(r'D:\healthcareChatbot\rarealert_1\dataset.csv') 
 
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -127,4 +127,5 @@ if st.button("Get Health Tip"):
         tip = get_rare_health_tip(user_input)
         translated_tip = translate_text(tip, dest_language=language_codes[language_choice])
         st.write(f"💡 **Health Tip:** {translated_tip}")
+
         st.caption("*Note: Tips are AI-generated and for general awareness.*")
